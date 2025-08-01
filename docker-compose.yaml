@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  hazelcast:
+    image: hazelcast/hazelcast:latest
+    ports:
+      - "5701:5701"
+
+  mancenter:
+    image: hazelcast/management-center:latest
+    ports:
+      - "8081:8080"
+    environment:
+      - HAZELCAST_CLUSTER_MEMBERS=hazelcast:5701
