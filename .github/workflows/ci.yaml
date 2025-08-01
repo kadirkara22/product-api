@@ -21,7 +21,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.product-api }}
+          password: ${{ secrets.GHCR_PAT }}
 
       - name: Prepare Metadata
         id: metadata
@@ -42,4 +42,4 @@ jobs:
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
           secrets: |
-            GITHUB_TOKEN=${{ secrets.product-api }}
+            GITHUB_TOKEN=${{ secrets.GHCR_PAT }}
